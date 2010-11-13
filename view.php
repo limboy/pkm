@@ -11,12 +11,25 @@
 		<script>
 		$(function(){
 			var $data = <?php echo $data ;?>;
+			var $latest_cnts = <?php echo $latest_cnts;?>;
 
 			var tag_li = '';
 			$.each($data, function(key, cnts){
 				tag_li += '<li><a href="#" tag="'+key+'">'+key+'('+cnts.length+')</a></li>';
 			});
 			$('ul.tag').append(tag_li);
+
+			//* latest_cnts
+			var list_li = '';
+			$.each($latest_cnts, function(key, $item){
+				list_li += '<li><a href="#">'+$item[1].split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1')+'</a></li>';
+			});
+			$('ul.list .latest').append(list_li);
+			$('ul.list li a').each(function(i){
+				$(this).data('cnt', $latest_cnts[i][1]+ '<br />tag: '+$latest_cnts[i][0]);
+			});
+			//*/
+
 
 			$('ul.tag').delegate('a', 'click', function(e){
 				e.preventDefault();
@@ -28,8 +41,8 @@
 				$.each($data[tag], function(key, cnt){
 					list_li += '<li><a href="#" tag="'+tag+'" index="'+key+'">'+cnt.split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1')+'</a></li>';
 				});
-				$('ul.list').empty().append(list_li);
-				$('ul.list li a').each(function(){
+				$('ul.list .tag_list').empty().append(list_li);
+				$('ul.list .tag_list li a').each(function(){
 					var tag = $(this).attr('tag');
 					var index = $(this).attr('index');
 					$(this).data('cnt', $data[tag][index]);
@@ -88,6 +101,8 @@
 			<ul class="sidebar tag">
 			</ul>
 			<ul class="sidebar list">
+				<div class="tag_list"></div>
+				<div class="latest"></div>
 			</ul>
 
 			<div class="main">
