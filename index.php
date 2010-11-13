@@ -1,6 +1,4 @@
 <?php
-require 'markdown.php';
-
 preg_match_all('/{{{(.*)}}}/sU', file_get_contents('data.txt'), $matches);
 
 if (!empty($matches[1])) {
