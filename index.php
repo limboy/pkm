@@ -11,12 +11,12 @@ if (!empty($matches[1])) {
 		$tags = $tags_content[0];
 		$content = $tags_content[1];
 		if ($i < 10) {
-			$latest_cnts[] = array($tags, markdown($content));
+			$latest_cnts[] = array($tags, $content);
 		}
 		foreach(explode(' ', $tags) as $tag) {
 			if (empty($tag))
 				continue;
-			$data[$tag][] = markdown($content)."<br />tag: ".$tags;
+			$data[$tag][] = $content."<br />tag: ".$tags;
 		}
 	}
 }

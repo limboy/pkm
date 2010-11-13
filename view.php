@@ -7,9 +7,13 @@
 		<link rel="stylesheet" href="media/scripts/prettify/prettify.css" type="text/css" />
 		<script src="media/scripts/jquery-1.4.3.min.js"></script>
 		<script src="media/scripts/less-1.0.35.min.js"></script>
+		<script src="media/scripts/showdown.js"></script>
 		<script src="media/scripts/prettify/prettify.js"></script>
 		<script>
 		$(function(){
+
+			converter = new Showdown.converter();
+
 			var $data = <?php echo $data ;?>;
 			var $latest_cnts = <?php echo $latest_cnts;?>;
 
@@ -22,11 +26,11 @@
 			//* latest_cnts
 			var list_li = '';
 			$.each($latest_cnts, function(key, $item){
-				list_li += '<li><a href="#">'+$item[1].split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1')+'</a></li>';
+				list_li += '<li><a href="#">'+$item[1].split("\n")[0].replace(/# /, '')+'</a></li>';
 			});
 			$('ul.list .latest').append(list_li);
 			$('ul.list li a').each(function(i){
-				$(this).data('cnt', $latest_cnts[i][1]+ '<br />tag: '+$latest_cnts[i][0]);
+				$(this).data('cnt', converter.makeHtml($latest_cnts[i][1])+ '<br />tag: '+$latest_cnts[i][0]);
 			});
 			//*/
 
@@ -39,13 +43,13 @@
 				var tag = $self.attr('tag');
 				var list_li = '';
 				$.each($data[tag], function(key, cnt){
-					list_li += '<li><a href="#" tag="'+tag+'" index="'+key+'">'+cnt.split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1')+'</a></li>';
+					list_li += '<li><a href="#" tag="'+tag+'" index="'+key+'">'+cnt.split("\n")[0].replace(/# /, '')+'</a></li>';
 				});
 				$('ul.list .tag_list').empty().append(list_li);
 				$('ul.list .tag_list li a').each(function(){
 					var tag = $(this).attr('tag');
 					var index = $(this).attr('index');
-					$(this).data('cnt', $data[tag][index]);
+					$(this).data('cnt', converter.makeHtml($data[tag][index]));
 				});
 			});
 
@@ -72,16 +76,16 @@
 				var relate_li = '';
 				$.each(tags, function(index, tag){
 					$.each($data[tag], function(key, cnt){
-						var t_title = cnt.split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1');
+						var t_title = cnt.split("\n")[0].replace(/# /, '');
 						if (title != t_title)
-							relate_li += '<li><a href="#" tag="'+tag+'" index="'+key+'">'+cnt.split("\n")[0].replace(/<h1>(.*)<\/h1>/, '$1')+'</a></li>';
+							relate_li += '<li><a href="#" tag="'+tag+'" index="'+key+'">'+cnt.split("\n")[0].replace(/# /, '')+'</a></li>';
 					});
 					$('.main .relate').css({'background': '#f4f4f4', 'border-top': '1px solid #ccc'});
 					$('.main .relate').append('<div class="item"><h3>'+tag+'</h3><ul>'+relate_li+'</ul></div>');
 					$('.main .relate a').each(function(){
 						var tag = $(this).attr('tag');
 						var index = $(this).attr('index');
-						$(this).data('cnt', $data[tag][index]);
+						$(this).data('cnt', converter.makeHtml($data[tag][index]));
 					});
 					relate_li = '';
 				});
