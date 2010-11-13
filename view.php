@@ -14,6 +14,10 @@
 
 			converter = new Showdown.converter();
 
+			win_height = $(window).height();
+			$('.sidebar').height(win_height-30);
+			$('.main .cnt').height(win_height - $('.main .relate').height() - 30);
+
 			var $data = <?php echo $data ;?>;
 			var $latest_cnts = <?php echo $latest_cnts;?>;
 
@@ -102,7 +106,7 @@
 		-->
 
 		<div id="doc" class="clear">
-			<ul class="sidebar tag">
+			<ul class="sidebar tag clear">
 			</ul>
 			<ul class="sidebar list">
 				<div class="tag_list"></div>

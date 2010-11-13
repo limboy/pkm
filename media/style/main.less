@@ -127,7 +127,7 @@ table tr td {
 		width: 300px;
 		float: left;
 		overflow: auto;
-		max-height: 672px;
+		/*max-height: 672px;*/
 		li {
 			/*background: url(../images/arrow.gif) no-repeat 0 5px;*/
 			padding: 0 10px 5px 0;
@@ -155,6 +155,7 @@ table tr td {
 	}
 
 	.list {
+		padding-left:10px;
 		li {
 			float:none;
 			font-size:13px;
@@ -170,11 +171,11 @@ table tr td {
 		.latest {
 			border-top:1px solid #CCCCCC;
 			height:300px;
-			margin:-15px;
+			margin-left:-10px;
 			position:absolute;
-			top:430px;
-			width:325px;
-			padding: 5px 0 0 5px
+			bottom:0px;
+			width:315px;
+			padding: 5px 0 0 10px
 		}
 	}
 
@@ -182,7 +183,7 @@ table tr td {
 	.main {
 		margin: 0 0 0 670px;
 		.cnt {
-			height: 470px;
+			/*height: 470px;*/
 			overflow: auto;
 			margin-left:-10px;
 			padding-left:10px;
@@ -236,11 +237,19 @@ table tr td {
 		overflow: auto;
 		/*background:#f4f4f4;*/
 		h3 {
-			font-size:12px;
+			font-size:13px;
 			font-weight:normal;
+			padding-left:7px;
 		}
 		a {
+			padding: 4px 7px;
 			border-bottom:0;
+			font-size:13px;
+		}
+		a:hover, a.selected {
+			background:#ccf;
+			color:#003D4C;
+			.rounded(5px)
 		}
 		.item {
 			float:left;
