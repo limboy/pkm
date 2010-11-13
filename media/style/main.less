@@ -1,0 +1,254 @@
+/* common */
+* {margin:0; padding:0}
+body {color: #222}
+ul, li {list-style:none}
+body {font-size:12px; font-family:'Microsoft Yahei', Verdana, "Helvetica","Arial",sans-serif;}
+a {text-decoration: none; color: #003D4C}
+a:hover {text-decoration: underline}
+.hide {display: none}
+.show {display: block}
+.clear {overflow: hidden}
+
+.rounded(@radius: 3px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+
+pre.prettyprint {
+	font-family:Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+	padding: 10px;
+	margin-bottom:10px;
+	margin-right:15px;
+	max-height:600px;
+	overflow:auto;
+	font-size:12px;
+	line-height: 160%;
+	background: #f4f4f4;
+}
+
+.note {
+	border:1px solid #CCCC66;
+	margin:1em 0;
+	padding:10px;
+	background: #ffb;
+	margin-right: 15px;
+	color: #333;
+}
+
+table {
+	border-collapse: collapse;
+	background-color:#fff;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	clear:both;
+	color:#333;
+	margin: 15px 15px 15px 0;
+}
+table tr th, table tr td {
+	border:1px solid #ddd;
+	padding:5px;
+}
+th {
+	background-color:#f2f2f2;
+	border-color:#fff #bbb #bbb #fff;
+	border-style:solid;
+	border-width:1px;
+	text-align:left;
+}
+table tr td {
+	background:none repeat scroll 0 0 #fff;
+	border-right:1px solid #ccc;
+	padding:4px 6px;
+	text-align:left;
+	vertical-align:top;
+}
+
+/* item */
+#header {
+	height: 60px;
+	position: relative;
+	background: url(../images/background-public-body.png) repeat-x;
+	.logo {
+		float: left;
+		a {
+			color: #eee;
+			font-size: 26px;
+			font-weight: bold;
+			text-decoration: none;
+			line-height: 60px;
+		}
+	}
+	.nav {
+		float: right;
+		li {
+			float: left;
+			a {
+				color: #eee;
+				background: url(../images/bg.png) no-repeat 9px -33px;
+				display: block;
+				font-size: 14px;
+				font-weight: bold;
+				margin: 13px 0;
+				padding: 7px 27px;
+				text-decoration: none;
+			}
+			a:hover {
+				/*background: url(../images/bg.png) no-repeat 9px 0px;*/
+			}
+		}
+	}
+}
+
+#footer {
+	background: url(../images/public-background-main-content.png) repeat-x;
+	padding: 25px 0;
+	p.zen {
+		text-align: center;
+		color: #999;
+		font-weight: bold;
+	}
+}
+
+
+/* item */
+#doc {
+	font-size: 14px;
+	background: url(../images/body_bg.png) repeat-y;
+	.sidebar {
+		/*
+		background: #f4f4f4;
+		border-right: 2px solid #ccc;
+		background: url(../images/sidebar_bg.gif) repeat-y;
+		*/
+		padding: 15px;
+		width: 300px;
+		float: left;
+		overflow: auto;
+		max-height: 672px;
+		li {
+			/*background: url(../images/arrow.gif) no-repeat 0 5px;*/
+			padding: 0 10px 5px 0;
+			float: left;
+			a:hover {
+				text-decoration:none;
+			}
+		}
+		
+	}
+
+	.tag {
+		li {
+			margin-bottom:12px;
+		}
+		a {
+			background:#ddd;
+			padding: 4px 7px;
+			font-size:13px;
+			.rounded(5px)
+		}
+		a:hover, a.selected {
+			background:#ccf;
+		}
+	}
+
+	.list {
+		li {
+			float:none;
+			font-size:13px;
+			a {
+				padding: 2px 5px;
+				display:inline-block;
+			}
+			a:hover, a.selected {
+				background:#ccf;
+				.rounded(5px)
+			}
+		}
+	}
+
+
+	.main {
+		margin: 0 0 0 670px;
+		.cnt {
+			height: 470px;
+			overflow: auto;
+			margin-left:-10px;
+			padding-left:10px;
+		}
+		a {
+			border-bottom: 1px dashed;
+		}
+		a:hover {
+			text-decoration: none;
+			color: #e32;
+		}
+		h1 {
+			font-weight:normal;
+			padding:10px 0;
+			font-size: 26px;
+			color: #e32;
+		}
+		h2 {
+			background-color:#F4F4F4;
+			font-weight:normal;
+			padding:10px;
+			font-size: 20px;
+			color: #333;
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			margin: 15px 0 10px -10px;
+			a {
+				border-bottom: 0;
+			}
+		}
+		h3 {
+			padding: 10px 0 0 0;
+		}
+		li {
+			list-style: circle inside none;
+			padding: 3px 0 0 20px;
+		}
+		p {
+			padding:10px 0;
+		}
+		hr {
+			border:0;
+			border-bottom:1px solid #ccc;
+			margin:10px 0 10px -10px;
+		}
+	}
+	.relate {
+		margin:0px 0 0 -10px;
+		padding:0 10px 10px;
+		height: 220px;
+		overflow: auto;
+		/*background:#f4f4f4;*/
+		h3 {
+			font-size:12px;
+			font-weight:normal;
+		}
+		a {
+			border-bottom:0;
+		}
+		.item {
+			float:left;
+			margin-right:15px;
+		}
+		li {
+			list-style:none;
+			padding:5px 0;
+		}
+	}
+}
+
+.wrap {
+	width: auto;
+}
+
+.logo {
+	margin-left: 10px;
+}
+
