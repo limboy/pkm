@@ -1,6 +1,6 @@
 # 一款基于标签的个人知识管理系统
 
-!http://farm5.static.flickr.com/4111/5171416767_290c6a21c7.jpg!
+![screenshot](http://farm5.static.flickr.com/4111/5171416767_290c6a21c7.jpg)
 
 ## 环境要求
 
