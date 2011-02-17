@@ -14,6 +14,7 @@ if (!empty($matches[1])) {
 		foreach(explode(' ', $tags) as $tag) {
 			if (empty($tag))
 				continue;
+				// add something ...
 			$data[$tag][] = $content."<br />tag: ".$tags;
 		}
 	}
